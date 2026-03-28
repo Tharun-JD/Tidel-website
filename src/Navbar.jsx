@@ -348,7 +348,7 @@ const Navbar = ({ hideEnquireButton = false }) => {
               </div>
 
               {/* Blogs with dropdown */}
-              <div 
+              <div
                 className="relative px-2 py-2"
                 ref={blogsDropdownRef}
                 onMouseEnter={() => {
@@ -359,7 +359,7 @@ const Navbar = ({ hideEnquireButton = false }) => {
                   setIsSupportDropdownOpen(false);
                 }}
                 onMouseLeave={() => {
-                  setTimeout(() => setIsBlogsDropdownOpen(false), 150);
+                  setIsBlogsDropdownOpen(false);
                 }}
               >
                 <button
