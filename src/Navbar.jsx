@@ -447,7 +447,7 @@ const Navbar = ({ hideEnquireButton = false }) => {
 
             {/* Enquire Button - Desktop */}
             {!hideEnquireButton && (
-              <div className="hidden xl:block opacity-0 translate-y-3 animate-fade-in-up pr-2 relative z-10" style={{ animationDelay: '1000ms' }}>
+              <div className="hidden xl:flex items-center justify-center">
                 <button
                   onClick={() => setIsEnquirePopupOpen(!isEnquirePopupOpen)}
                   className="enquire-button"
@@ -462,7 +462,7 @@ const Navbar = ({ hideEnquireButton = false }) => {
               {!hideEnquireButton && (
                 <button
                   onClick={() => setIsEnquirePopupOpen(!isEnquirePopupOpen)}
-                  className="bg-blue-600 text-white text-[10px] font-semibold px-2.5 py-1.5 rounded-md hover:bg-blue-700 transition-colors"
+                  className="bg-blue-600 text-white text-xs font-semibold px-3 py-2 rounded-md hover:bg-blue-700 transition-colors"
                 >
                   Enquire
                 </button>
