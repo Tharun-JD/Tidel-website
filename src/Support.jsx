@@ -72,11 +72,12 @@ const Support = () => {
       <Navbar />
       
       {/* Hero Section */}
-      <section className="relative w-full h-[350px] md:h-[450px] flex flex-col pt-16 md:pt-20"> 
+      <section className="relative w-full h-[500px] md:h-[600px] lg:h-[700px] flex flex-col pt-16 md:pt-20"> 
         <div className="relative flex-grow w-full overflow-hidden flex flex-col justify-center">
-          <div 
-            className="absolute inset-0 bg-cover bg-center" 
-            style={{ backgroundImage: `url(${thulirImage})` }} 
+          <img 
+            src={thulirImage} 
+            alt="TIDEL Park Background"
+            className="absolute inset-0 w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-[#002f6c]/70 mix-blend-multiply"></div>
           
