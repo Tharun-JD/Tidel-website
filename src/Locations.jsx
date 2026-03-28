@@ -40,16 +40,14 @@ const Locations = () => {
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
-            { city: 'Taramani, Chennai', desc: 'The flagship IT park that started it all.', icon: '🏢' },
-            { city: 'Pattabiram, Chennai', desc: 'Our newest venture extending the IT corridor.', icon: '🏢' },
-            { city: 'Coimbatore', desc: 'A premier IT ecosystem in the textile city.', icon: '🏗️' },
-            { city: 'Thanjavur', desc: 'Empowering the cultural heartland with IT capability.', icon: '🏛️' },
-            { city: 'Salem', desc: 'Driving tech opportunities in the Steel City.', icon: '🏭' },
-            { city: 'Villupuram', desc: 'Developing new vistas for technology expansion.', icon: '📐' }
+            { city: 'Taramani, Chennai', desc: 'The flagship IT park that started it all.' },
+            { city: 'Pattabiram, Chennai', desc: 'Our newest venture extending the IT corridor.' },
+            { city: 'Coimbatore', desc: 'A premier IT ecosystem in the textile city.' },
+            { city: 'Thanjavur', desc: 'Empowering the cultural heartland with IT capability.' },
+            { city: 'Salem', desc: 'Driving tech opportunities in the Steel City.' },
+            { city: 'Villupuram', desc: 'Developing new vistas for technology expansion.' }
           ].map((loc, idx) => (
-            <div key={idx} className="bg-gray-50 border border-gray-100 rounded-4xl
-lg p-8 hover:shadow-lg transition-shadow duration-300">
-              <div className="text-4xl mb-4">{loc.icon}</div>
+            <div key={idx} className="bg-gray-50 border border-gray-100 rounded-4xl p-8 hover:shadow-lg transition-shadow duration-300">
               <h3 className="text-xl font-bold text-gray-800 mb-2">{loc.city}</h3>
               <p className="text-gray-600 mb-6">{loc.desc}</p>
               <button className="text-[#1c487b] font-semibold hover:text-[#13326c] transition-colors flex items-center gap-1">
