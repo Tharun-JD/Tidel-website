@@ -189,7 +189,7 @@ const Blogs = () => {
               </h1>
             </div>
             <div className="flex-shrink-0">
-              <img src={logo} alt="TIDEL Logo" className="w-40 h-40 md:w-48 md:h-48 object-contain" />
+              <img src={logo} alt="TIDEL Logo" className="w-48 h-48 md:w-56 md:h-56 object-contain" />
             </div>
           </div>
         </div>
