@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Navbar from './Navbar';
 import Footer from './Footer';
-import companyImage from './assets/company/tcs.png';
 import tidelImage from './assets/tidel.png';
 import neoImage from './assets/neo.png';
 import thulirImage from './assets/thulir.png';
@@ -187,9 +186,6 @@ const Blogs = () => {
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-extrabold text-[#19438e] mb-6 leading-tight max-w-4xl tracking-tight">
                 Interesting tidbits, event highlights, workplace fun and much more that goes on here at TIDEL!
               </h1>
-            </div>
-            <div className="flex-shrink-0">
-              <img src={companyImage} alt="Company" className="w-48 h-48 object-contain rounded-xl shadow-lg border border-gray-100" />
             </div>
           </div>
         </div>
