@@ -416,21 +416,32 @@ const Navbar = ({ hideEnquireButton = false }) => {
               <div 
                 className="relative px-2 py-2"
                 ref={supportDropdownRef}
+                onMouseEnter={() => {
+                  setIsSupportDropdownOpen(true);
+                  setIsWhyTidelDropdownOpen(false);
+                  setIsFindSpaceDropdownOpen(false);
+                  setIsAboutUsDropdownOpen(false);
+                  setIsBlogsDropdownOpen(false);
+                }}
+                onMouseLeave={() => {
+                  setTimeout(() => setIsSupportDropdownOpen(false), 150);
+                }}
               >
                 <button
                   className="nav-button text-slate-800 text-sm font-semibold hover:text-blue-600 px-2 py-2 rounded-lg hover:bg-slate-100 flex items-center whitespace-nowrap"
                   onClick={() => {
-                    setIsSupportDropdownOpen(!isSupportDropdownOpen);
-                    setIsWhyTidelDropdownOpen(false);
-                    setIsFindSpaceDropdownOpen(false);
-                    setIsAboutUsDropdownOpen(false);
+                    handleLinkClick('/support', setIsSupportDropdownOpen);
                   }}
                 >
                   Support
                 </button>
                 
                 {isSupportDropdownOpen && (
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg py-2 z-100 border border-gray-100">
+                  <div 
+                    className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg py-2 z-100 border border-gray-100"
+                    onMouseEnter={() => setIsSupportDropdownOpen(true)}
+                    onMouseLeave={() => setIsSupportDropdownOpen(false)}
+                  >
                     {supportDropdownItems.map((item, index) => (
                       <button
                         key={index}
@@ -651,11 +662,7 @@ const Navbar = ({ hideEnquireButton = false }) => {
               <div>
                 <button
                   onClick={() => {
-                    setIsSupportDropdownOpen(!isSupportDropdownOpen);
-                    setIsWhyTidelDropdownOpen(false);
-                    setIsFindSpaceDropdownOpen(false);
-                    setIsAboutUsDropdownOpen(false);
-                    setIsBlogsDropdownOpen(false);
+                    handleLinkClick('/support', setIsSupportDropdownOpen);
                   }}
                   className="w-full flex items-center justify-between px-4 py-3 text-slate-800 font-semibold hover:bg-slate-50 rounded-lg transition-colors"
                 >
