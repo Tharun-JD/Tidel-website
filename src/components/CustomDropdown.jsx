@@ -1,9 +1,12 @@
 import React, { useState, useRef, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 
 const CustomDropdown = ({ options, placeholder, value, onChange, className = '' }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState(value || '');
   const dropdownRef = useRef(null);
+  const triggerRef = useRef(null);
+  const [menuPosition, setMenuPosition] = useState({ top: 0, left: 0, width: 0 });
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -18,6 +21,17 @@ const CustomDropdown = ({ options, placeholder, value, onChange, className = '' 
     };
   }, []);
 
+  useEffect(() => {
+    if (isOpen && triggerRef.current) {
+      const rect = triggerRef.current.getBoundingClientRect();
+      setMenuPosition({
+        top: rect.bottom + window.scrollY + 8,
+        left: rect.left + window.scrollX,
+        width: rect.width
+      });
+    }
+  }, [isOpen]);
+
   const handleSelect = (optionValue) => {
     setSelectedValue(optionValue);
     setIsOpen(false);
@@ -28,10 +42,37 @@ const CustomDropdown = ({ options, placeholder, value, onChange, className = '' 
 
   const selectedOption = options.find(opt => opt.value === selectedValue);
 
+  const dropdownMenu = isOpen ? ReactDOM.createPortal(
+    <div 
+      className="dropdown-menu"
+      style={{
+        position: 'absolute',
+        top: menuPosition.top,
+        left: menuPosition.left,
+        width: menuPosition.width,
+        zIndex: 99999
+      }}
+    >
+      {options.map((option, index) => (
+        <button
+          key={option.value}
+          type="button"
+          className={`dropdown-option ${selectedValue === option.value ? 'selected' : ''}`}
+          onClick={() => handleSelect(option.value)}
+          style={{ animationDelay: `${index * 50}ms` }}
+        >
+          {option.label}
+        </button>
+      ))}
+    </div>,
+    document.body
+  ) : null;
+
   return (
     <div className={`custom-dropdown ${className}`} ref={dropdownRef}>
       <button
         type="button"
+        ref={triggerRef}
         className={`dropdown-trigger ${isOpen ? 'open' : ''}`}
         onClick={() => setIsOpen(!isOpen)}
       >
@@ -43,21 +84,7 @@ const CustomDropdown = ({ options, placeholder, value, onChange, className = '' 
         </svg>
       </button>
       
-      {isOpen && (
-        <div className="dropdown-menu">
-          {options.map((option, index) => (
-            <button
-              key={option.value}
-              type="button"
-              className={`dropdown-option ${selectedValue === option.value ? 'selected' : ''}`}
-              onClick={() => handleSelect(option.value)}
-              style={{ animationDelay: `${index * 50}ms` }}
-            >
-              {option.label}
-            </button>
-          ))}
-        </div>
-      )}
+      {dropdownMenu}
     </div>
   );
 };

@@ -955,10 +955,9 @@ const Home = () => {
          <section id="banks-and-financial-services" className="py-20 bg-gray-50">
            <div className="container mx-auto px-4">
              <div className="text-center mb-12">
-               <div className="flex items-center justify-center mb-3">
-                 <img src={atmImage} alt="Banking" className="w-6 h-6 mr-2" />
-                 <h2 className="text-3xl font-bold text-gray-900">Banks and Financial Services</h2>
-               </div>
+                <div className="flex items-center justify-center mb-3">
+                  <h2 className="text-3xl font-bold text-gray-900">Banks and Financial Services</h2>
+                </div>
                <p className="text-gray-600 max-w-2xl mx-auto">Experience seamless banking and financial services right at TIDEL Park. Our banking partners provide comprehensive financial solutions for businesses and individuals.</p>
              </div>
              

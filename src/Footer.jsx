@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import logoImage from './assets/logo.png';
 
 const Footer = () => {
@@ -59,6 +60,20 @@ const Footer = () => {
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
               </a>
             </div>
+            
+            <div className="mt-8">
+              <div className="relative inline-block text-left">
+                <select className="appearance-none bg-transparent border border-gray-300 rounded-md py-2 pl-3 pr-8 text-sm text-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 cursor-pointer w-32">
+                  <option value="en">English</option>
+                  <option value="ta">தமிழ்</option>
+                </select>
+                <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-500">
+                  <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
           </div>
           
           {/* About Us */}
@@ -68,11 +83,23 @@ const Footer = () => {
               <span className="absolute -bottom-2 left-0 w-12 h-1 bg-linear-to-r from-blue-500 to-cyan-500 rounded-full"></span>
             </h3>
             <ul className="space-y-3">
-              {['Vision', 'History', 'Board of Directors', 'Shareholders', 'Other Ventures', 'CSR Policy', 'NRC Policy', 'CSR Committee', 'NR Committee', 'RTI', 'Careers'].map((item, index) => (
+              {[
+                { name: 'Vision', path: '/about-us#vision-mission' },
+                { name: 'History', path: '/about-us#tidel-legacy' },
+                { name: 'Board of Directors', path: '/about-us#board-of-directors' },
+                { name: 'Shareholders', path: '/about-us' },
+                { name: 'Other Ventures', path: '/about-us' },
+                { name: 'CSR Policy', path: '/about-us' },
+                { name: 'NRC Policy', path: '/about-us#nrc-committee' },
+                { name: 'CSR Committee', path: '/about-us#audit-committee' },
+                { name: 'NR Committee', path: '/about-us#tender-committee' },
+                { name: 'RTI', path: '/about-us' },
+                { name: 'Careers', path: '/about-us#careers' }
+              ].map((item, index) => (
                 <li key={index}>
-                  <a href="#" className="footer-menu-item text-gray-600 hover:text-gray-900 transition-all duration-300 hover:translate-x-2 inline-block group">
-                    <span className="group-hover:text-blue-500 transition-colors duration-300">→</span> {item}
-                  </a>
+                  <Link to={item.path} className="footer-menu-item text-gray-600 hover:text-gray-900 transition-all duration-300 hover:translate-x-2 inline-block group">
+                    <span className="group-hover:text-blue-500 transition-colors duration-300">→</span> {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -85,11 +112,19 @@ const Footer = () => {
               <span className="absolute -bottom-2 left-0 w-12 h-1 bg-linear-to-r from-blue-500 to-cyan-500 rounded-full"></span>
             </h3>
             <ul className="space-y-3">
-              {['Coimbatore', 'Salem', 'Taramani', 'Thanjavur', 'Thoothukudi', 'Tiruppur', 'Villupuram'].map((item, index) => (
+              {[
+                { name: 'Coimbatore', path: '/find-space?city=Coimbatore' },
+                { name: 'Salem', path: '/find-space?city=Salem' },
+                { name: 'Taramani', path: '/find-space?city=Taramani, Chennai' },
+                { name: 'Thanjavur', path: '/find-space?city=Thanjavur' },
+                { name: 'Thoothukudi', path: '/find-space?city=Thoothukudi' },
+                { name: 'Tiruppur', path: '/find-space?city=Tiruppur' },
+                { name: 'Villupuram', path: '/find-space?city=Villupuram' }
+              ].map((item, index) => (
                 <li key={index}>
-                  <a href="#" className="footer-menu-item text-gray-600 hover:text-gray-900 transition-all duration-300 hover:translate-x-2 inline-block group">
-                    <span className="group-hover:text-blue-500 transition-colors duration-300">→</span> {item}
-                  </a>
+                  <Link to={item.path} className="footer-menu-item text-gray-600 hover:text-gray-900 transition-all duration-300 hover:translate-x-2 inline-block group">
+                    <span className="group-hover:text-blue-500 transition-colors duration-300">→</span> {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -102,11 +137,16 @@ const Footer = () => {
               <span className="absolute -bottom-2 left-0 w-12 h-1 bg-linear-to-r from-blue-500 to-cyan-500 rounded-full"></span>
             </h3>
             <ul className="space-y-3">
-              {['Facilities', 'Highlights', 'Testimonials', 'Life at TIDEL'].map((item, index) => (
+              {[
+                { name: 'Facilities', path: '/why-tidel#cn_fac_title' },
+                { name: 'Highlights', path: '/why-tidel#highlights' },
+                { name: 'Testimonials', path: '/why-tidel#testimonial' },
+                { name: 'Life at TIDEL', path: '/why-tidel#lifeattidel' }
+              ].map((item, index) => (
                 <li key={index}>
-                  <a href="#" className="footer-menu-item text-gray-600 hover:text-gray-900 transition-all duration-300 hover:translate-x-2 inline-block group">
-                    <span className="group-hover:text-blue-500 transition-colors duration-300">→</span> {item}
-                  </a>
+                  <Link to={item.path} className="footer-menu-item text-gray-600 hover:text-gray-900 transition-all duration-300 hover:translate-x-2 inline-block group">
+                    <span className="group-hover:text-blue-500 transition-colors duration-300">→</span> {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -119,11 +159,15 @@ const Footer = () => {
               <span className="absolute -bottom-2 left-0 w-12 h-1 bg-linear-to-r from-blue-500 to-cyan-500 rounded-full"></span>
             </h3>
             <ul className="space-y-3 mb-8">
-              {['Blog', 'Events', 'Tenders'].map((item, index) => (
+              {[
+                { name: 'Blog', path: '/blogs' },
+                { name: 'Events', path: '/events' },
+                { name: 'Tenders', path: '/tenders' }
+              ].map((item, index) => (
                 <li key={index}>
-                  <a href="#" className="footer-menu-item text-gray-600 hover:text-gray-900 transition-all duration-300 hover:translate-x-2 inline-block group">
-                    <span className="group-hover:text-blue-500 transition-colors duration-300">→</span> {item}
-                  </a>
+                  <Link to={item.path} className="footer-menu-item text-gray-600 hover:text-gray-900 transition-all duration-300 hover:translate-x-2 inline-block group">
+                    <span className="group-hover:text-blue-500 transition-colors duration-300">→</span> {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -132,11 +176,16 @@ const Footer = () => {
               <span className="absolute -bottom-2 left-0 w-12 h-1 bg-linear-to-r from-blue-500 to-cyan-500 rounded-full"></span>
             </h3>
             <ul className="space-y-3">
-              {['Get in Touch', 'Book Facility', 'Visitors Pass', 'Find TIDEL'].map((item, index) => (
+              {[
+                { name: 'Get in Touch', path: '/support#location' },
+                { name: 'Book Facility', path: '/support#location' },
+                { name: 'Visitors Pass', path: '/support#location' },
+                { name: 'Find TIDEL', path: '/support#location' }
+              ].map((item, index) => (
                 <li key={index}>
-                  <a href="#" className="footer-menu-item text-gray-600 hover:text-gray-900 transition-all duration-300 hover:translate-x-2 inline-block group">
-                    <span className="group-hover:text-blue-500 transition-colors duration-300">→</span> {item}
-                  </a>
+                  <Link to={item.path} className="footer-menu-item text-gray-600 hover:text-gray-900 transition-all duration-300 hover:translate-x-2 inline-block group">
+                    <span className="group-hover:text-blue-500 transition-colors duration-300">→</span> {item.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -148,9 +197,9 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-500 text-sm mb-4 md:mb-0">© 2025 TIDEL Park. All rights reserved. Building Tamil Nadu's IT future.</p>
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-gray-500 hover:text-gray-900 transition-colors duration-300">Privacy Policy</a>
-              <a href="#" className="text-gray-500 hover:text-gray-900 transition-colors duration-300">Terms of Service</a>
-              <a href="#" className="text-gray-500 hover:text-gray-900 transition-colors duration-300">Cookie Policy</a>
+              <Link to="/support" className="text-gray-500 hover:text-gray-900 transition-colors duration-300">Privacy Policy</Link>
+              <Link to="/support" className="text-gray-500 hover:text-gray-900 transition-colors duration-300">Terms of Service</Link>
+              <Link to="/support" className="text-gray-500 hover:text-gray-900 transition-colors duration-300">Cookie Policy</Link>
             </div>
           </div>
         </div>

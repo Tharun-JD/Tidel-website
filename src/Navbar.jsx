@@ -48,9 +48,6 @@ const Navbar = ({ hideEnquireButton = false }) => {
       if (supportDropdownRef.current && !supportDropdownRef.current.contains(event.target)) {
         setIsSupportDropdownOpen(false);
       }
-      if (enquirePopupRef.current && !enquirePopupRef.current.contains(event.target)) {
-        setIsEnquirePopupOpen(false);
-      }
       if (mobileMenuRef.current && !mobileMenuRef.current.contains(event.target)) {
         setIsMobileMenuOpen(false);
       }
@@ -458,8 +455,9 @@ const Navbar = ({ hideEnquireButton = false }) => {
 
             {/* Enquire Button - Desktop */}
             {!hideEnquireButton && (
-              <div className="hidden xl:flex items-center justify-center">
+              <div className="hidden xl:flex items-center justify-center relative">
                 <button
+                  ref={enquirePopupRef}
                   onClick={() => setIsEnquirePopupOpen(!isEnquirePopupOpen)}
                   className="enquire-button"
                 >
@@ -469,7 +467,7 @@ const Navbar = ({ hideEnquireButton = false }) => {
             )}
 
             {/* Hamburger Menu Button - visible on mobile/tablet */}
-            <div className="xl:hidden flex items-center gap-3">
+            <div className="xl:hidden flex items-center gap-3 relative">
               {!hideEnquireButton && (
                 <button
                   onClick={() => setIsEnquirePopupOpen(!isEnquirePopupOpen)}
@@ -686,37 +684,58 @@ const Navbar = ({ hideEnquireButton = false }) => {
           </div>
         )}
 
-        {/* Enquire Popup */}
-        {isEnquirePopupOpen && !hideEnquireButton && (
-          <div className="fixed inset-0 bg-black/50 flex items-start justify-end z-100 p-4">
-            <div 
-              ref={enquirePopupRef}
-              className="bg-white text-gray-800 rounded-lg p-8 max-w-md w-full animate-fade-in"
-            >
-              <h3 className="text-2xl font-bold mb-3 text-blue-600">ENQUIRY</h3>
-              <p className="text-lg mb-6 text-gray-600">Click here to enquire.</p>
-              
-              <div className="space-y-3">
-                <button className="w-full bg-blue-600 text-white text-lg font-medium px-6 py-3 rounded hover:bg-blue-700 transition-colors">
-                  Book Facility
-                </button>
-                <button className="w-full bg-blue-600 text-white text-lg font-medium px-6 py-3 rounded hover:bg-blue-700 transition-colors">
-                  Find Space
-                </button>
-                <button className="w-full bg-blue-600 text-white text-lg font-medium px-6 py-3 rounded hover:bg-blue-700 transition-colors">
-                  Visitor Pass
-                </button>
-                <button 
-                  onClick={() => setIsEnquirePopupOpen(false)}
-                  className="w-full bg-gray-200 text-gray-800 text-lg font-medium px-6 py-3 rounded hover:bg-gray-300 transition-colors"
-                >
-                  CANCEL
-                </button>
-              </div>
-            </div>
-          </div>
-        )}
       </nav>
+
+      {/* Enquire Modal Popup - Small top-right dropdown */}
+      {isEnquirePopupOpen && (
+        <div className="fixed inset-0 z-[9999]" onClick={() => setIsEnquirePopupOpen(false)}>
+          <div
+            className="absolute top-16 right-4 w-72 bg-[#19438e] rounded-lg shadow-2xl p-6 animate-fade-in"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => setIsEnquirePopupOpen(false)}
+              className="absolute top-3 right-3 text-white/70 hover:text-white transition-colors"
+              aria-label="Close"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            <h2 className="text-xl font-bold text-white mb-2">ENQUIRY</h2>
+            <p className="text-white/80 text-sm mb-5">Click here to enquire.</p>
+
+            <div className="space-y-3">
+              <button
+                onClick={() => { navigate('/support'); setIsEnquirePopupOpen(false); window.scrollTo(0, 0); }}
+                className="w-full py-3 px-4 border border-white/60 text-white text-sm font-medium hover:bg-white hover:text-[#19438e] transition-all duration-300 text-left rounded"
+              >
+                Book Facility
+              </button>
+              <button
+                onClick={() => { navigate('/find-space'); setIsEnquirePopupOpen(false); window.scrollTo(0, 0); }}
+                className="w-full py-3 px-4 border border-white/60 text-white text-sm font-medium hover:bg-white hover:text-[#19438e] transition-all duration-300 text-left rounded"
+              >
+                Find Space
+              </button>
+              <button
+                onClick={() => { navigate('/support'); setIsEnquirePopupOpen(false); window.scrollTo(0, 0); }}
+                className="w-full py-3 px-4 border border-white/60 text-white text-sm font-medium hover:bg-white hover:text-[#19438e] transition-all duration-300 text-left rounded"
+              >
+                Visitor Pass
+              </button>
+            </div>
+
+            <button
+              onClick={() => setIsEnquirePopupOpen(false)}
+              className="mt-5 py-2 px-6 border border-white/60 text-white text-sm font-semibold hover:bg-white hover:text-[#19438e] transition-all duration-300 rounded"
+            >
+              CANCEL
+            </button>
+          </div>
+        </div>
+      )}
     </>
   );
 };
