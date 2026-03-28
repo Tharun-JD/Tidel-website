@@ -211,10 +211,10 @@ const AboutUs = () => {
             
             <div className="relative max-w-5xl mx-auto px-4 py-12">
               {/* Blue Vertical Bar Accent (Left) */}
-              <div className="absolute -left-4 -top-8 md:-left-12 md:-top-16 w-12 md:w-24 h-[60%] md:h-[85%] bg-[#1c487b] z-0 shadow-lg" />
+              <div className="absolute -left-4 -top-8 md:-left-12 md:-top-16 w-12 md:w-24 h-[60%] md:h-[85%] bg-[#1c487b] -z-10 shadow-lg" />
               
               {/* Orange-Red Box Accent (Bottom Right) */}
-              <div className="absolute -right-4 -bottom-8 md:-right-16 md:-bottom-16 w-32 md:w-80 h-32 md:h-80 bg-[#ee4c23] z-0 shadow-lg" />
+              <div className="absolute -right-4 -bottom-8 md:-right-16 md:-bottom-16 w-32 md:w-80 h-32 md:h-80 bg-[#ee4c23] -z-10 shadow-lg" />
               
               {/* Video Container */}
               <div className="relative z-10 aspect-video w-full bg-black rounded-sm overflow-hidden shadow-2xl border-4 border-white">
