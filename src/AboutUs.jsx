@@ -145,7 +145,7 @@ const AboutUs = () => {
   ];
 
   const CommitteeCard = ({ member }) => (
-    <div className="bg-white border border-gray-100 rounded-4xl flex flex-col items-center p-8 transition-all hover:bg-gray-50/50 group hover:shadow-2xl hover:-translate-y-2 duration-500 shadow-sm">
+    <div className="bg-white border-2 border-gray-100 rounded-4xl flex flex-col items-center p-8 transition-all hover:bg-gray-50/50 group hover:shadow-2xl hover:-translate-y-2 duration-500 shadow-sm hover:border-[#19438e]">
       <div className="w-28 h-28 md:w-32 md:h-32 rounded-full overflow-hidden mb-6 border-4 border-white shadow-lg group-hover:scale-110 transition-transform duration-500">
         <img 
           src={member.image} 
@@ -203,7 +203,7 @@ const AboutUs = () => {
             </p>
           </div>
 
-          {/* Legacy Video Section - Synced Design */}
+          {/* Legacy Video Section */}
           <div className="mb-32 relative">
             <h3 className="text-3xl md:text-[2.5rem] text-center font-light text-slate-600 mb-12 tracking-tight">
               Watch the legacy of <span className="font-black text-slate-900">TIDEL</span>
@@ -211,10 +211,10 @@ const AboutUs = () => {
             
             <div className="relative max-w-5xl mx-auto px-4 py-12">
               {/* Blue Vertical Bar Accent (Left) */}
-              <div className="absolute -left-4 -top-8 md:-left-12 md:-top-16 w-10 md:w-20 h-[70%] md:h-[90%] bg-[#1c487b] -z-10 shadow-lg" />
+              <div className="absolute -left-4 -top-8 md:-left-12 md:-top-16 w-12 md:w-24 h-[60%] md:h-[85%] bg-[#1c487b] z-0 shadow-lg" />
               
               {/* Orange-Red Box Accent (Bottom Right) */}
-              <div className="absolute -right-4 -bottom-8 md:-right-16 md:-bottom-16 w-32 md:w-80 h-32 md:h-80 bg-[#ee4c23] -z-10 shadow-lg" />
+              <div className="absolute -right-4 -bottom-8 md:-right-16 md:-bottom-16 w-32 md:w-80 h-32 md:h-80 bg-[#ee4c23] z-0 shadow-lg" />
               
               {/* Video Container */}
               <div className="relative z-10 aspect-video w-full bg-black rounded-sm overflow-hidden shadow-2xl border-4 border-white">
