@@ -537,24 +537,23 @@ const Home = () => {
             </h2>
           </div>
 
-          <div className="max-w-5xl mx-auto relative group">
-            {/* Blue Vertical Bar Accent (Left) */}
-            <div className="absolute -left-4 -top-8 md:-left-12 md:-top-16 w-12 md:w-24 h-[60%] md:h-[85%] bg-[#1c487b] -z-10 shadow-lg" />
-            
-            {/* Orange-Red Box Accent (Bottom Right) */}
-            <div className="absolute -right-4 -bottom-8 md:-right-16 md:-bottom-16 w-32 md:w-80 h-32 md:h-80 bg-[#ee4c23] -z-10 shadow-lg" />
-
-            {/* Video Container */}
-            <div className="relative z-10 aspect-video w-full bg-black rounded-sm overflow-hidden shadow-2xl border-4 border-white">
-              <iframe
-                id="youtube-player"
-                className="absolute inset-0 w-full h-full"
-                src="https://www.youtube.com/embed/ejoGJ-QLC8Y?autoplay=1&mute=1&loop=1&playlist=ejoGJ-QLC8Y&modestbranding=1&rel=0&iv_load_policy=3"
-                title="TIDEL Legacy Video"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              ></iframe>
+          <div className="max-w-5xl mx-auto relative">
+            {/* Blue and Orange Gradient Background */}
+            <div className="relative rounded-2xl overflow-hidden" style={{background: 'linear-gradient(to right, #1c487b 0%, #1c487b 35%, #ee4c23 35%, #ee4c23 100%)'}}>
+              <div className="p-2 md:p-3">
+                {/* Video Container */}
+                <div className="relative aspect-video w-full bg-black rounded-sm overflow-hidden shadow-2xl border-4 border-white">
+                  <iframe
+                    id="youtube-player"
+                    className="absolute inset-0 w-full h-full"
+                    src="https://www.youtube.com/embed/ejoGJ-QLC8Y?autoplay=1&mute=1&loop=1&playlist=ejoGJ-QLC8Y&modestbranding=1&rel=0&iv_load_policy=3"
+                    title="TIDEL Legacy Video"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  ></iframe>
+                </div>
+              </div>
             </div>
           </div>
         </div>
