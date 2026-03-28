@@ -194,14 +194,6 @@ const Navbar = ({ hideEnquireButton = false }) => {
                   }}
                 >
                   Why TIDEL
-                  <svg
-                    className={`w-4 h-4 ml-1 transition-transform duration-300 ${isWhyTidelDropdownOpen ? 'rotate-180' : ''}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </button>
                 
                 {isWhyTidelDropdownOpen && (
@@ -252,14 +244,6 @@ const Navbar = ({ hideEnquireButton = false }) => {
                   }}
                 >
                   Find Space
-                  <svg
-                    className={`w-4 h-4 ml-1 transition-transform duration-300 ${isFindSpaceDropdownOpen ? 'rotate-180' : ''}`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </button>
                 {isFindSpaceDropdownOpen && (
                   <div 
@@ -342,14 +326,6 @@ const Navbar = ({ hideEnquireButton = false }) => {
                   }}
                 >
                   About Us
-                  <svg 
-                    className={`w-4 h-4 ml-1 transition-transform duration-300 ${isAboutUsDropdownOpen ? 'rotate-180' : ''}`} 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </button>
                 
                 {isAboutUsDropdownOpen && (
@@ -399,14 +375,6 @@ const Navbar = ({ hideEnquireButton = false }) => {
                   }}
                 >
                   Blogs
-                  <svg 
-                    className={`w-4 h-4 ml-1 transition-transform duration-300 ${isBlogsDropdownOpen ? 'rotate-180' : ''}`} 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </button>
                 
                 {isBlogsDropdownOpen && (
@@ -459,14 +427,6 @@ const Navbar = ({ hideEnquireButton = false }) => {
                   }}
                 >
                   Support
-                  <svg 
-                    className={`w-4 h-4 ml-1 transition-transform duration-300 ${isSupportDropdownOpen ? 'rotate-180' : ''}`} 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </button>
                 
                 {isSupportDropdownOpen && (
@@ -544,9 +504,6 @@ const Navbar = ({ hideEnquireButton = false }) => {
                   className="w-full flex items-center justify-between px-4 py-3 text-slate-800 font-semibold hover:bg-slate-50 rounded-lg transition-colors"
                 >
                   Why TIDEL
-                  <svg className={`w-4 h-4 transition-transform duration-300 ${isWhyTidelDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </button>
                 {isWhyTidelDropdownOpen && (
                   <div className="pl-4 space-y-1 pb-2">
@@ -576,9 +533,6 @@ const Navbar = ({ hideEnquireButton = false }) => {
                   className="w-full flex items-center justify-between px-4 py-3 text-slate-800 font-semibold hover:bg-slate-50 rounded-lg transition-colors"
                 >
                   Find Space
-                  <svg className={`w-4 h-4 transition-transform duration-300 ${isFindSpaceDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </button>
                 {isFindSpaceDropdownOpen && (
                   <div className="pl-4 space-y-1 pb-2">
@@ -590,9 +544,6 @@ const Navbar = ({ hideEnquireButton = false }) => {
                             className="w-full flex items-center justify-between px-4 py-2 text-sm text-gray-600 hover:text-blue-600 hover:bg-slate-50 rounded-lg transition-colors"
                           >
                             {item.label}
-                            <svg className={`w-3 h-3 transition-transform duration-300 ${isSpaceBookingSubmenuOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                            </svg>
                           </button>
                           {isSpaceBookingSubmenuOpen && (
                             <div className="pl-4 space-y-1">
@@ -635,9 +586,6 @@ const Navbar = ({ hideEnquireButton = false }) => {
                   className="w-full flex items-center justify-between px-4 py-3 text-slate-800 font-semibold hover:bg-slate-50 rounded-lg transition-colors"
                 >
                   About Us
-                  <svg className={`w-4 h-4 transition-transform duration-300 ${isAboutUsDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </button>
                 {isAboutUsDropdownOpen && (
                   <div className="pl-4 space-y-1 pb-2">
@@ -667,9 +615,6 @@ const Navbar = ({ hideEnquireButton = false }) => {
                   className="w-full flex items-center justify-between px-4 py-3 text-slate-800 font-semibold hover:bg-slate-50 rounded-lg transition-colors"
                 >
                   Blogs
-                  <svg className={`w-4 h-4 transition-transform duration-300 ${isBlogsDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </button>
                 {isBlogsDropdownOpen && (
                   <div className="pl-4 space-y-1 pb-2">
@@ -715,9 +660,6 @@ const Navbar = ({ hideEnquireButton = false }) => {
                   className="w-full flex items-center justify-between px-4 py-3 text-slate-800 font-semibold hover:bg-slate-50 rounded-lg transition-colors"
                 >
                   Support
-                  <svg className={`w-4 h-4 transition-transform duration-300 ${isSupportDropdownOpen ? 'rotate-180' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
                 </button>
                 {isSupportDropdownOpen && (
                   <div className="pl-4 space-y-1 pb-2">
