@@ -462,7 +462,7 @@ const Navbar = ({ hideEnquireButton = false }) => {
               {!hideEnquireButton && (
                 <button
                   onClick={() => setIsEnquirePopupOpen(!isEnquirePopupOpen)}
-                  className="bg-blue-600 text-white text-xs font-semibold px-3 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+                  className="bg-blue-600 text-white text-[10px] font-semibold px-2.5 py-1.5 rounded-md hover:bg-blue-700 transition-colors"
                 >
                   Enquire
                 </button>
