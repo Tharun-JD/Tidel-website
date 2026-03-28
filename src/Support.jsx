@@ -12,63 +12,56 @@ const Support = () => {
       phone: "+91 44 2254 0500 / 0501",
       email: "md@tidelpark.com",
       mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.4855219213!2d80.244837475904!3d12.980630487335682!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525d6255555555%3A0xc3f7a147e45e7d5d!2sTIDEL%20Park!5e0!3m2!1sen!2sin!4v1711540000000!5m2!1sen!2sin",
-      icon: "🏢"
+     
     },
     "Chennai - Pattabiram": {
       address: "Pattabiram High Road, Pattabiram, Avadi Taluk, Chennai - 600 072, Tamil Nadu, India.",
       phone: "+91 44 2254 0500 / 0501",
       email: "md@tidelpark.com",
       mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.8!2d80.062!3d13.123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a526!2sTIDEL%20Park%20Pattabiram!5e0!3m2!1sen!2sin!4v1711540000000",
-      icon: "🏗️"
+
     },
     "Coimbatore": {
       address: "ELCOT SEZ, IT Park Road, Civil Aerodrome Post, Coimbatore - 641 014, Tamil Nadu, India.",
       phone: "+91 422 251 0000",
       email: "md-cbe@tidelpark.com",
       mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.3!2d77.012!3d11.023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba85!2sTIDEL%20Park%20Coimbatore!5e0!3m2!1sen!2sin!4v1711540000000",
-      icon: "⛰️"
     },
     "Salem": {
       address: "Kullagoundanoor, Karuppur, Saminaickenpatti, Salem - 636 011, Tamil Nadu, India.",
       phone: "+91 44 2254 0500",
       email: "md@tidelpark.com",
       mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3907.5!2d78.072!3d11.723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1!2sTIDEL%20Neo%20Salem!5e0!3m2!1sen!2sin!4v1711540000000",
-      icon: "🕍"
     },
     "Thanjavur": {
       address: "Pillayarpatti Village, Thanjavur Taluk, Thanjavur - 613 005, Tamil Nadu, India.",
       phone: "+91 44 2254 0500",
       email: "md@tidelpark.com",
       mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3911!2d79.123!3d10.745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba8b!2sTIDEL%20Neo%20Thanjavur!5e0!3m2!1sen!2sin!4v1711540000000",
-      icon: "🕌"
     },
     "Thoothukudi": {
       address: "Meelavittan II Village, Thoothukudi Taluk, Thoothukudi - 628 001, Tamil Nadu, India.",
       phone: "+91 44 2254 0500",
       email: "md@tidelpark.com",
       mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3941!2d78.145!3d8.823!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b03!2sTIDEL%20Neo%20Thoothukudi!5e0!3m2!1sen!2sin!4v1711540000000",
-      icon: "🚢"
     },
     "Tiruppur": {
       address: "Rakkiyapalayam Village, Avinashi Taluk, Tiruppur - 641 654, Tamil Nadu, India.",
       phone: "+91 44 2254 0500",
       email: "md@tidelpark.com",
       mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3915!2d77.345!3d11.223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba9!2sTIDEL%20Neo%20Tiruppur!5e0!3m2!1sen!2sin!4v1711540000000",
-      icon: "👚"
     },
     "Villupuram": {
       address: "Trichy-Chennai Highway, Villupuram - 605 602, Tamil Nadu, India. (8km from Pondicherry)",
       phone: "+91 44 2254 0500",
       email: "md@tidelpark.com",
       mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3896!2d79.445!3d11.923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a53!2sTIDEL%20Neo%20Villupuram!5e0!3m2!1sen!2sin!4v1711540000000",
-      icon: "🏙️"
     },
     "Karaikudi": {
       address: "Kalanivasal, Karaikudi, Sivaganga District - 630 001, Tamil Nadu, India.",
       phone: "+91 44 2254 0500",
       email: "md@tidelpark.com",
       mapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3920!2d78.745!3d10.023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba9!2sTIDEL%20Neo%20Karaikudi!5e0!3m2!1sen!2sin!4v1711540000000",
-      icon: "🏰"
     }
   };
 
@@ -110,15 +103,14 @@ const Support = () => {
           
           {/* Map Side */}
           <div className="lg:w-2/3 h-[500px] md:h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-gray-50 group relative">
-             <div className="absolute top-8 left-8 z-10">
-                <div className="bg-white/95 backdrop-blur-md px-6 py-3 rounded-2xl shadow-xl flex items-center gap-4 border border-gray-100 animate-slide-in">
-                   <span className="text-3xl">{currentLoc.icon}</span>
-                   <div>
-                      <h4 className="text-sm font-black text-[#19438e] leading-none uppercase tracking-widest">{selectedCity}</h4>
-                      <p className="text-[10px] font-bold text-gray-400 mt-1">Live Map View</p>
-                   </div>
-                </div>
-             </div>
+              <div className="absolute top-8 right-8 z-10">
+                 <div className="bg-white/95 backdrop-blur-md px-6 py-3 rounded-2xl shadow-xl flex items-center gap-4 border border-gray-100 animate-slide-in">
+                    <div>
+                       <h4 className="text-sm font-black text-[#19438e] leading-none uppercase tracking-widest">{selectedCity}</h4>
+                       <p className="text-[10px] font-bold text-gray-400 mt-1">Live Map View</p>
+                    </div>
+                 </div>
+              </div>
              
              <iframe 
                title="TIDEL Map"
