@@ -105,8 +105,8 @@ const Support = () => {
       </section>
 
       {/* Dynamic Location Switcher Section */}
-      <section id="location" className="py-24 px-8 md:px-16 lg:px-24 bg-white">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20">
+      <section id="location" className="py-12 md:py-24 px-4 md:px-16 lg:px-24 bg-white">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-20">
           
           {/* Map Side */}
           <div className="lg:w-2/3 h-[500px] md:h-[600px] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-gray-50 group relative">

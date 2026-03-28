@@ -197,7 +197,7 @@ const Blogs = () => {
 
       {/* Content Feed Section */}
       <section className="flex-grow py-16 px-8 md:px-16 lg:px-24">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-20">
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-20">
           
           {/* Main Feed: Left Column (70%) */}
           <div className="lg:w-2/3 flex flex-col gap-16">
@@ -317,7 +317,7 @@ const Blogs = () => {
       </section>
 
       {/* Corporate Footer Section Callout */}
-      <section className="py-24 px-8 md:px-16 lg:px-24 bg-[#f8fafc] border-t border-gray-100">
+      <section className="py-12 md:py-24 px-4 md:px-16 lg:px-24 bg-[#f8fafc] border-t border-gray-100">
          <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-12">
             <div>
                <h2 className="text-3xl font-black text-[#19438e] mb-2 uppercase tracking-tight">Stay Informed</h2>

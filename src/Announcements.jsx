@@ -85,7 +85,7 @@ const Announcements = () => {
       </section>
 
       {/* Announcements Content Section */}
-      <section className="flex-grow py-24 px-8 md:px-16 lg:px-24 bg-white relative">
+      <section className="flex-grow py-12 md:py-24 px-4 md:px-16 lg:px-24 bg-white relative">
         <div className="max-w-6xl mx-auto">
           
           <div className="mb-16 border-b border-gray-100 pb-10 flex flex-col md:flex-row justify-between items-end gap-6">

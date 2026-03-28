@@ -127,7 +127,7 @@ const WhyTidel = () => {
       </section>
 
       {/* Facilities Section */}
-      <section id="cn_fac_title" className="py-20 px-8 md:px-16 lg:px-24 bg-white">
+      <section id="cn_fac_title" className="py-12 md:py-20 px-4 md:px-16 lg:px-24 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-[#19438e] mb-4">Facilities</h2>
@@ -154,7 +154,7 @@ const WhyTidel = () => {
       </section>
 
       {/* Highlights Section */}
-      <section id="highlights" className="py-20 px-8 md:px-16 lg:px-24 bg-[#f1f5f9]">
+      <section id="highlights" className="py-12 md:py-20 px-4 md:px-16 lg:px-24 bg-[#f1f5f9]">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-gray-800 mb-12 border-l-8 border-[#19438e] pl-6">Highlights</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-12">
@@ -171,7 +171,7 @@ const WhyTidel = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonial" className="py-20 px-8 md:px-16 lg:px-24 bg-white overflow-hidden">
+      <section id="testimonial" className="py-12 md:py-20 px-4 md:px-16 lg:px-24 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center text-[#19438e] mb-16">Testimonials</h2>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -191,7 +191,7 @@ const WhyTidel = () => {
       </section>
 
       {/* Life at TIDEL Section */}
-      <section id="lifeattidel" className="py-24 px-8 md:px-16 lg:px-24 bg-[#19438e] text-white">
+      <section id="lifeattidel" className="py-12 md:py-24 px-4 md:px-16 lg:px-24 bg-[#19438e] text-white">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-extrabold mb-8 tracking-tight italic">Experience #LifeAtTIDEL</h2>
           <p className="text-xl opacity-90 mb-12 max-w-2xl mx-auto leading-relaxed font-medium">

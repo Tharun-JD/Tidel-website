@@ -242,7 +242,7 @@ const Home = () => {
       <Navbar />
       
         {/* Hero Section */}
-        <section className="relative h-[600px] overflow-hidden">
+        <section className="relative h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden">
           <div className="absolute inset-0">
             <div className="absolute inset-0 bg-cover bg-top transition-opacity duration-1000" style={{ 
               backgroundImage: `url(${heroImage})`,
@@ -520,7 +520,7 @@ const Home = () => {
 
 
       {/* Video Section - Redesigned to match requested accent style perfectly */}
-      <section id="watch-our-story" className="py-24 bg-white relative overflow-hidden">
+      <section id="watch-our-story" className="py-12 md:py-24 bg-white relative overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20 -z-10" 
              style={{ backgroundImage: `url(${heroImage})` }}>
