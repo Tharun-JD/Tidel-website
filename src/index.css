@@ -3143,3 +3143,38 @@ html {
   transform: translateY(-6px);
 }
 
+/* Blue Border Loader for Life at Tidel Gallery Images */
+@keyframes blueBorderLoader {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes blueBorderPulse {
+  0%, 100% {
+    border-color: #3b82f6;
+    box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    border-color: #1e40af;
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.7);
+  }
+}
+
+.gallery-img-loader {
+  background: linear-gradient(
+    90deg,
+    #1e3a5f 0%,
+    #3b82f6 20%,
+    #60a5fa 40%,
+    #3b82f6 60%,
+    #1e3a5f 100%
+  );
+  background-size: 200% 100%;
+  animation: blueBorderLoader 1.8s ease-in-out infinite, blueBorderPulse 1.5s ease-in-out infinite;
+  border: 3px solid #3b82f6;
+}
+

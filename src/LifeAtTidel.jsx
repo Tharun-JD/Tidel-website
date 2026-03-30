@@ -106,8 +106,8 @@ const LifeAtTidel = () => {
               return (
                 <div 
                   key={img.id}
-                  className={`relative rounded-3xl overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 ${
-                    isLarge ? 'col-span-2 row-span-2' : 
+                  className={`relative rounded-3xl overflow-hidden shadow-lg group cursor-pointer transition-all duration-500 hover:shadow-2xl hover:-translate-y-1 border-2 border-transparent hover:border-blue-500 ${
+                    isLarge ? 'col-span-2 row-span-2' :
                     isWide ? 'col-span-2 row-span-1' :
                     isTall ? 'col-span-1 row-span-2' :
                     'col-span-1 row-span-1'

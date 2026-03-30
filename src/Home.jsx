@@ -64,6 +64,7 @@ const Home = () => {
   const [isPlaying, setIsPlaying] = useState(true);
   const [currentLineIndex, setCurrentLineIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
+  const [loadedImages, setLoadedImages] = useState(new Set());
   const playerRef = useRef(null);
   const containerRef = useRef(null);
   const cardsRef = useRef([]);
@@ -71,6 +72,8 @@ const Home = () => {
   const lifeCardsRef = useRef([]);
   const featureCardsRef = useRef([]);
   const findSpaceButtonRef = useRef(null);
+
+  const galleryImages = [gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, gallery7, gallery8, gallery9, gallery10, gallery11, gallery12, gallery13];
 
   const rotatingLines = [
     "Tidel Park stands as a symbol of Chennai's fast-growing tech innovation.",
@@ -226,6 +229,16 @@ const Home = () => {
 
     return () => clearInterval(textInterval);
   }, [rotatingLines.length]);
+
+  // Staggered loading for Life at Tidel gallery images
+  useEffect(() => {
+    const timers = galleryImages.map((_, idx) =>
+      setTimeout(() => {
+        setLoadedImages(prev => new Set(prev).add(idx));
+      }, 300 + idx * 250)
+    );
+    return () => timers.forEach(clearTimeout);
+  }, []);
 
   const toggleVideo = () => {
     if (playerRef.current) {
@@ -572,7 +585,7 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div
                 ref={(el) => (cardsRef.current[0] = el)}
-                className="location-card bg-white rounded-xl shadow-sm border border-gray-200 p-4 cursor-pointer fade-in-up"
+                className="location-card bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-blue-500 p-4 cursor-pointer fade-in-up"
               >
                 <div className="shine-effect" />
                 <div className="card-glow" />
@@ -621,7 +634,7 @@ const Home = () => {
               </div>
               <div
                 ref={(el) => (cardsRef.current[1] = el)}
-                className="location-card bg-white rounded-xl shadow-sm border border-gray-200 p-4 cursor-pointer fade-in-up"
+                className="location-card bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-blue-500 p-4 cursor-pointer fade-in-up"
               >
                 <div className="shine-effect" />
                 <div className="card-glow" />
@@ -670,7 +683,7 @@ const Home = () => {
               </div>
               <div
                 ref={(el) => (cardsRef.current[2] = el)}
-                className="location-card bg-white rounded-xl shadow-sm border border-gray-200 p-4 cursor-pointer fade-in-up"
+                className="location-card bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-blue-500 p-4 cursor-pointer fade-in-up"
               >
                 <div className="shine-effect" />
                 <div className="card-glow" />
@@ -719,7 +732,7 @@ const Home = () => {
               </div>
               <div
                 ref={(el) => (cardsRef.current[3] = el)}
-                className="location-card bg-white rounded-xl shadow-sm border border-gray-200 p-4 cursor-pointer fade-in-up"
+                className="location-card bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-blue-500 p-4 cursor-pointer fade-in-up"
               >
                 <div className="shine-effect" />
                 <div className="card-glow" />
@@ -768,7 +781,7 @@ const Home = () => {
               </div>
               <div
                 ref={(el) => (cardsRef.current[4] = el)}
-                className="location-card bg-white rounded-xl shadow-sm border border-gray-200 p-4 cursor-pointer fade-in-up"
+                className="location-card bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-blue-500 p-4 cursor-pointer fade-in-up"
               >
                 <div className="shine-effect" />
                 <div className="card-glow" />
@@ -817,7 +830,7 @@ const Home = () => {
               </div>
               <div
                 ref={(el) => (cardsRef.current[5] = el)}
-                className="location-card bg-white rounded-xl shadow-sm border border-gray-200 p-4 cursor-pointer fade-in-up"
+                className="location-card bg-white rounded-xl shadow-sm border-2 border-transparent hover:border-blue-500 p-4 cursor-pointer fade-in-up"
               >
                 <div className="shine-effect" />
                 <div className="card-glow" />
@@ -1111,11 +1124,19 @@ const Home = () => {
                  >
                    {[...Array(3)].map((_, i) => (
                      <React.Fragment key={i}>
-                       {[gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, gallery7, gallery8, gallery9, gallery10, gallery11, gallery12, gallery13].map((img, idx) => (
-                         <div key={`${i}-${idx}`} className="w-64 h-48 md:w-80 md:h-60 rounded-2xl overflow-hidden shadow-lg border border-gray-100 shrink-0">
-                           <img src={img} alt={`Life at TIDEL ${idx}`} className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" />
-                         </div>
-                       ))}
+                        {[gallery1, gallery2, gallery3, gallery4, gallery5, gallery6, gallery7, gallery8, gallery9, gallery10, gallery11, gallery12, gallery13].map((img, idx) => (
+                          <div key={`${i}-${idx}`} className="w-64 h-48 md:w-80 md:h-60 rounded-2xl overflow-hidden shadow-lg border border-gray-100 shrink-0 relative">
+                            {!loadedImages.has(idx) && (
+                              <div className="absolute inset-0 gallery-img-loader rounded-2xl" />
+                            )}
+                            <img
+                              src={img}
+                              alt={`Life at TIDEL ${idx}`}
+                              className={`w-full h-full object-cover hover:scale-110 transition-transform duration-700 ${loadedImages.has(idx) ? 'opacity-100' : 'opacity-0'}`}
+                              onLoad={() => setLoadedImages(prev => new Set(prev).add(idx))}
+                            />
+                          </div>
+                        ))}
                      </React.Fragment>
                    ))}
                  </motion.div>
