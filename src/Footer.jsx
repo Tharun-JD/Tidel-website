@@ -87,13 +87,13 @@ const Footer = () => {
                 { name: 'Vision', path: '/about-us#vision-mission' },
                 { name: 'History', path: '/about-us#tidel-legacy' },
                 { name: 'Board of Directors', path: '/about-us#board-of-directors' },
-                { name: 'Shareholders', path: '/about-us' },
-                { name: 'Other Ventures', path: '/about-us' },
-                { name: 'CSR Policy', path: '/about-us' },
+                { name: 'Shareholders', path: '/about-us#shareholders' },
+                { name: 'Other Ventures', path: '/about-us#other-ventures' },
+                { name: 'CSR Policy', path: '/about-us#csr-policy' },
                 { name: 'NRC Policy', path: '/about-us#nrc-committee' },
                 { name: 'CSR Committee', path: '/about-us#audit-committee' },
                 { name: 'NR Committee', path: '/about-us#tender-committee' },
-                { name: 'RTI', path: '/about-us' },
+                { name: 'RTI', path: '/about-us#rti' },
                 { name: 'Careers', path: '/about-us#careers' }
               ].map((item, index) => (
                 <li key={index}>
@@ -178,8 +178,8 @@ const Footer = () => {
             <ul className="space-y-3">
               {[
                 { name: 'Get in Touch', path: '/support#location' },
-                { name: 'Book Facility', path: '/support#location' },
-                { name: 'Visitors Pass', path: '/support#location' },
+                { name: 'Book Facility', path: '/support#book-facility' },
+                { name: 'Visitors Pass', path: '/support#visitor-pass' },
                 { name: 'Find TIDEL', path: '/support#location' }
               ].map((item, index) => (
                 <li key={index}>

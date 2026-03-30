@@ -317,6 +317,88 @@ const AboutUs = () => {
             </div>
           </div>
 
+          {/* Shareholders */}
+          <div id="shareholders" className="mb-24 scroll-mt-24">
+            <h2 className="text-3xl font-black mb-6 text-gray-900 uppercase tracking-tight italic">Shareholders</h2>
+            <div className="w-16 h-1 bg-[#1c487b] mb-8"></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 transition-all hover:bg-white hover:shadow-xl duration-500">
+                <h3 className="text-xl font-bold text-slate-800 mb-4 uppercase tracking-wider">TIDCO</h3>
+                <p className="text-gray-600 leading-relaxed font-medium">Tamil Nadu Industrial Development Corporation Limited (TIDCO) is a premier industrial development agency of the Government of Tamil Nadu, established in 1965 to promote industrial growth.</p>
+              </div>
+              <div className="bg-slate-50 p-8 rounded-3xl border border-slate-100 transition-all hover:bg-white hover:shadow-xl duration-500">
+                <h3 className="text-xl font-bold text-slate-800 mb-4 uppercase tracking-wider">ELCOT</h3>
+                <p className="text-gray-600 leading-relaxed font-medium">Electronics Corporation of Tamil Nadu Limited (ELCOT) is the nodal agency for Information and Communications Technology (ICT) for the Government of Tamil Nadu.</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Other Ventures */}
+          <div id="other-ventures" className="mb-24 scroll-mt-24">
+            <h2 className="text-3xl font-black mb-6 text-gray-900 uppercase tracking-tight italic">Other Ventures</h2>
+            <div className="w-16 h-1 bg-[#1c487b] mb-8"></div>
+            <div className="bg-slate-50 p-10 rounded-4xl border border-slate-100">
+              <p className="text-gray-700 leading-relaxed text-lg font-medium mb-6">
+                TIDEL's success has paved the way for several urban and semi-urban IT infrastructure projects across Tamil Nadu, fostering a decentralized growth model for the technology sector.
+              </p>
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <li className="flex items-center gap-3 font-bold text-[#19438e]">
+                  <span className="w-2 h-2 bg-red-600 rounded-full"></span> TIDEL Neo (Mini IT Parks)
+                </li>
+                <li className="flex items-center gap-3 font-bold text-[#19438e]">
+                  <span className="w-2 h-2 bg-red-600 rounded-full"></span> TIDEL Thulir (Educational Centers)
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* CSR Policy */}
+          <div id="csr-policy" className="mb-24 scroll-mt-24">
+            <h2 className="text-3xl font-black mb-6 text-gray-900 uppercase tracking-tight italic">CSR Policy</h2>
+            <div className="w-16 h-1 bg-[#1c487b] mb-8"></div>
+            <p className="text-gray-700 leading-relaxed text-lg font-medium mb-8">
+              At TIDEL, Corporate Social Responsibility is an integral part of our business philosophy. We are committed to contributing to the social and economic development of the communities where we operate.
+            </p>
+            <div className="bg-white border border-slate-200 p-8 rounded-3xl shadow-sm">
+              <h4 className="text-lg font-bold text-slate-800 mb-4">Focus Areas:</h4>
+              <ul className="space-y-4">
+                <li className="flex gap-4">
+                  <span className="text-red-600 font-black">01.</span>
+                  <span className="text-gray-600 font-semibold">Promotion of Education and Skill Development.</span>
+                </li>
+                <li className="flex gap-4">
+                  <span className="text-red-600 font-black">02.</span>
+                  <span className="text-gray-600 font-semibold">Ensuring environmental sustainability and ecological balance.</span>
+                </li>
+                <li className="flex gap-4">
+                  <span className="text-red-600 font-black">03.</span>
+                  <span className="text-gray-600 font-semibold">Contribution to social welfare and community development.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* RTI */}
+          <div id="rti" className="mb-24 scroll-mt-24">
+            <h2 className="text-3xl font-black mb-6 text-gray-900 uppercase tracking-tight italic">Right To Information (RTI)</h2>
+            <div className="w-16 h-1 bg-[#1c487b] mb-8"></div>
+            <p className="text-gray-700 leading-relaxed text-lg font-medium mb-8">
+              In accordance with the Right to Information Act, 2005, TIDEL Park provides information to the public regarding our operations and policies.
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                <h4 className="text-sm font-black text-[#19438e] uppercase tracking-widest mb-2">Public Information Officer</h4>
+                <p className="font-bold text-slate-800">Company Secretary</p>
+                <p className="text-xs text-gray-500 font-medium">TIDEL Park Ltd., Chennai</p>
+              </div>
+              <div className="p-6 bg-slate-50 rounded-2xl border border-slate-100">
+                <h4 className="text-sm font-black text-[#19438e] uppercase tracking-widest mb-2">Appellate Authority</h4>
+                <p className="font-bold text-slate-800">Managing Director</p>
+                <p className="text-xs text-gray-500 font-medium">TIDEL Park Ltd., Chennai</p>
+              </div>
+            </div>
+          </div>
+
           {/* Careers */}
           <div id="careers" className="scroll-mt-24 bg-[#19438e] p-12 rounded-4xl text-white relative overflow-hidden group">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -mr-32 -mt-32 transition-transform group-hover:scale-150 duration-700"></div>

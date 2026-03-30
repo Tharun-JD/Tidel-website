@@ -12,9 +12,12 @@ import Events from './Events'
 import Locations from './Locations'
 import LifeAtTidel from './LifeAtTidel'
 
+import ScrollToTop from './components/ScrollToTop'
+
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/find-space" element={<FindSpace />} />

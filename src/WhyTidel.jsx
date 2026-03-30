@@ -220,46 +220,6 @@ const WhyTidel = () => {
         </div>
       </section>
 
-      {/* Corporate Footer Section Callout */}
-      <section className="py-16 px-8 md:px-16 lg:px-24 bg-white border-t border-gray-100">
-         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-sm text-gray-500">
-            <div>
-               <h4 className="font-bold text-gray-800 mb-6 uppercase tracking-wider">About Us</h4>
-               <ul className="space-y-3">
-                  <li>Vision</li>
-                  <li>History</li>
-                  <li>Board of Directors</li>
-                  <li>Careers</li>
-               </ul>
-            </div>
-            <div>
-               <h4 className="font-bold text-gray-800 mb-6 uppercase tracking-wider">Find Space</h4>
-               <ul className="space-y-3">
-                  <li>Salem</li>
-                  <li>Thanjavur</li>
-                  <li>Coimbatore</li>
-                  <li>Villupuram</li>
-               </ul>
-            </div>
-            <div>
-               <h4 className="font-bold text-gray-800 mb-6 uppercase tracking-wider">Why TIDEL</h4>
-               <ul className="space-y-3">
-                  <li>Facilities</li>
-                  <li>Highlights</li>
-                  <li>Testimonials</li>
-                  <li>Life at TIDEL</li>
-               </ul>
-            </div>
-            <div>
-               <h4 className="font-bold text-gray-800 mb-6 uppercase tracking-wider">Resources</h4>
-               <ul className="space-y-3">
-                  <li>Blog</li>
-                  <li>Events</li>
-                  <li>Tenders</li>
-               </ul>
-            </div>
-         </div>
-      </section>
       <Footer />
     </div>
   );

@@ -21,6 +21,7 @@ const Navbar = ({ hideEnquireButton = false }) => {
   const supportDropdownRef = useRef(null);
   const enquirePopupRef = useRef(null);
   const mobileMenuRef = useRef(null);
+  const dropdownTimerRef = useRef(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -107,8 +108,28 @@ const Navbar = ({ hideEnquireButton = false }) => {
 
   const supportDropdownItems = [
     { label: 'Location', path: '/support#location' },
-    { label: 'Key Contacts', path: '/support' }
+    { label: 'Key Component', path: '/support#location' }
   ];
+
+  const openDropdown = (setter) => {
+    if (dropdownTimerRef.current) clearTimeout(dropdownTimerRef.current);
+    
+    if (setter) {
+      // Close other dropdowns only when opening a new one
+      if (setter !== setIsWhyTidelDropdownOpen) setIsWhyTidelDropdownOpen(false);
+      if (setter !== setIsFindSpaceDropdownOpen) setIsFindSpaceDropdownOpen(false);
+      if (setter !== setIsAboutUsDropdownOpen) setIsAboutUsDropdownOpen(false);
+      if (setter !== setIsBlogsDropdownOpen) setIsBlogsDropdownOpen(false);
+      if (setter !== setIsSupportDropdownOpen) setIsSupportDropdownOpen(false);
+      setter(true);
+    }
+  };
+
+  const closeDropdown = (setter) => {
+    dropdownTimerRef.current = setTimeout(() => {
+      if (setter) setter(false);
+    }, 800);
+  };
 
   const handleLinkClick = (path, setDropdownState) => {
     if (setDropdownState) setDropdownState(false);
@@ -118,7 +139,6 @@ const Navbar = ({ hideEnquireButton = false }) => {
     if (path.includes('?')) {
       const [route, queryString] = path.split('?');
       navigate(`${route}?${queryString}`);
-      window.scrollTo(0, 0);
       return;
     }
     
@@ -146,7 +166,6 @@ const Navbar = ({ hideEnquireButton = false }) => {
       }
     } else {
       navigate(path);
-      window.scrollTo(0, 0);
     }
   };
 
@@ -166,17 +185,8 @@ const Navbar = ({ hideEnquireButton = false }) => {
               {/* Why TIDEL with dropdown */}
               <div
                 className="relative px-2 py-2"
-                ref={whyTidelDropdownRef}
-                onMouseEnter={() => {
-                  setIsWhyTidelDropdownOpen(true);
-                  setIsFindSpaceDropdownOpen(false);
-                  setIsAboutUsDropdownOpen(false);
-                  setIsBlogsDropdownOpen(false);
-                  setIsSupportDropdownOpen(false);
-                }}
-                onMouseLeave={() => {
-                  setTimeout(() => setIsWhyTidelDropdownOpen(false), 150);
-                }}
+                onMouseEnter={() => openDropdown(setIsWhyTidelDropdownOpen)}
+                onMouseLeave={() => closeDropdown(setIsWhyTidelDropdownOpen)}
               >
                 <button
                   className="nav-button text-slate-800 text-sm font-semibold hover:text-blue-600 px-2 py-2 rounded-lg hover:bg-slate-100 flex items-center whitespace-nowrap"
@@ -184,10 +194,6 @@ const Navbar = ({ hideEnquireButton = false }) => {
                     navigate('/');
                     window.scrollTo(0, 0);
                     setIsWhyTidelDropdownOpen(false);
-                    setIsFindSpaceDropdownOpen(false);
-                    setIsAboutUsDropdownOpen(false);
-                    setIsBlogsDropdownOpen(false);
-                    setIsSupportDropdownOpen(false);
                   }}
                 >
                   Why TIDEL
@@ -195,20 +201,22 @@ const Navbar = ({ hideEnquireButton = false }) => {
                 
                 {isWhyTidelDropdownOpen && (
                   <div 
-                    className="absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl py-2 z-100 border border-gray-100 flex flex-col overflow-visible"
-                    onMouseEnter={() => setIsWhyTidelDropdownOpen(true)}
-                    onMouseLeave={() => setIsWhyTidelDropdownOpen(false)}
+                    className="absolute top-full left-0 pt-2 z-100"
+                    onMouseEnter={() => openDropdown(null)}
+                    onMouseLeave={() => closeDropdown(setIsWhyTidelDropdownOpen)}
                   >
-                    {whyTidelDropdownItems.map((item, index) => (
-                      <button
-                        key={index}
-                        onClick={() => handleLinkClick(item.path, setIsWhyTidelDropdownOpen)}
-                        className="dropdown-item w-full text-left px-6 py-4 text-base font-medium text-gray-700 hover:bg-slate-50 hover:text-blue-600 transition-all duration-200 flex items-center justify-between group"
-                      >
-                        <span>{item.label}</span>
-                        <span className="opacity-0 group-hover:opacity-100 transition-opacity text-blue-400">&rarr;</span>
-                      </button>
-                    ))}
+                    <div className="w-72 bg-white rounded-xl shadow-2xl py-2 border border-gray-100 flex flex-col">
+                      {whyTidelDropdownItems.map((item, index) => (
+                        <button
+                          key={index}
+                          onClick={() => handleLinkClick(item.path, setIsWhyTidelDropdownOpen)}
+                          className="dropdown-item w-full text-left px-6 py-4 text-base font-medium text-gray-700 hover:bg-slate-50 hover:text-blue-600 transition-all duration-200 flex items-center justify-between group"
+                        >
+                          <span>{item.label}</span>
+                          <span className="opacity-0 group-hover:opacity-100 transition-opacity text-blue-400">&rarr;</span>
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
@@ -216,17 +224,8 @@ const Navbar = ({ hideEnquireButton = false }) => {
               {/* Find Space with dropdown */}
               <div
                 className="relative px-2 py-2"
-                ref={findSpaceDropdownRef}
-                onMouseEnter={() => {
-                  setIsFindSpaceDropdownOpen(true);
-                  setIsWhyTidelDropdownOpen(false);
-                  setIsAboutUsDropdownOpen(false);
-                  setIsBlogsDropdownOpen(false);
-                  setIsSupportDropdownOpen(false);
-                }}
-                onMouseLeave={() => {
-                  setTimeout(() => setIsFindSpaceDropdownOpen(false), 150);
-                }}
+                onMouseEnter={() => openDropdown(setIsFindSpaceDropdownOpen)}
+                onMouseLeave={() => closeDropdown(setIsFindSpaceDropdownOpen)}
               >
                 <button
                   className="nav-button text-slate-800 text-sm font-semibold hover:text-blue-600 px-2 py-2 rounded-lg hover:bg-slate-100 flex items-center whitespace-nowrap"
@@ -234,63 +233,53 @@ const Navbar = ({ hideEnquireButton = false }) => {
                     navigate('/find-space');
                     window.scrollTo(0, 0);
                     setIsFindSpaceDropdownOpen(false);
-                    setIsWhyTidelDropdownOpen(false);
-                    setIsAboutUsDropdownOpen(false);
-                    setIsBlogsDropdownOpen(false);
-                    setIsSupportDropdownOpen(false);
                   }}
                 >
                   Find Space
                 </button>
                 {isFindSpaceDropdownOpen && (
                   <div 
-                    className="absolute top-full left-0 mt-2 w-72 bg-white rounded-xl shadow-2xl py-2 z-100 border border-gray-100 flex flex-col overflow-visible"
-                    onMouseEnter={() => setIsFindSpaceDropdownOpen(true)}
-                    onMouseLeave={() => setIsFindSpaceDropdownOpen(false)}
+                    className="absolute top-full left-0 pt-2 z-100"
+                    onMouseEnter={() => openDropdown(null)}
+                    onMouseLeave={() => closeDropdown(setIsFindSpaceDropdownOpen)}
                   >
-                    {findSpaceDropdownItems.map((item, index) => (
-                      item.submenu ? (
-                        <div
-                          key={index}
-                          className="relative"
-                          ref={spaceBookingSubmenuRef}
-                        >
+                    <div className="w-72 bg-white rounded-xl shadow-2xl py-2 border border-gray-100 flex flex-col">
+                      {findSpaceDropdownItems.map((item, index) => (
+                        item.submenu ? (
+                          <div key={index} className="relative">
+                            <button
+                              className="dropdown-item w-full text-left px-6 py-4 text-base font-medium text-gray-700 hover:bg-slate-50 hover:text-blue-600 transition-all duration-200 flex items-center justify-between group"
+                              onClick={() => setIsSpaceBookingSubmenuOpen(!isSpaceBookingSubmenuOpen)}
+                            >
+                              <span>{item.label}</span>
+                              <span className="transition-transform group-hover:translate-x-1 text-blue-400">&raquo;</span>
+                            </button>
+                            {isSpaceBookingSubmenuOpen && (
+                              <div className="absolute top-0 left-full ml-1 w-64 bg-white rounded-lg shadow-lg py-2 z-110 border border-gray-100">
+                                {item.submenu.map((subItem, subIndex) => (
+                                  <button
+                                    key={subIndex}
+                                    onClick={() => handleLinkClick(subItem.path, setIsFindSpaceDropdownOpen)}
+                                    className="dropdown-item block px-4 py-3 w-full text-left text-base text-gray-700 hover:bg-slate-100 hover:text-blue-600 transition-all duration-200"
+                                  >
+                                    {subItem.label}
+                                  </button>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        ) : (
                           <button
+                            key={index}
+                            onClick={() => handleLinkClick(item.path, setIsFindSpaceDropdownOpen)}
                             className="dropdown-item w-full text-left px-6 py-4 text-base font-medium text-gray-700 hover:bg-slate-50 hover:text-blue-600 transition-all duration-200 flex items-center justify-between group"
-                            onClick={() => setIsSpaceBookingSubmenuOpen(!isSpaceBookingSubmenuOpen)}
                           >
                             <span>{item.label}</span>
-                            <span className="transition-transform group-hover:translate-x-1 text-blue-400">&raquo;</span>
+                            <span className="opacity-0 group-hover:opacity-100 transition-opacity text-blue-400">&rarr;</span>
                           </button>
-                          {isSpaceBookingSubmenuOpen && (
-                            <div className="absolute top-0 left-full ml-1 w-64 bg-white rounded-lg shadow-lg py-2 z-110 border border-gray-100">
-                              {item.submenu.map((subItem, subIndex) => (
-                                <button
-                                  key={subIndex}
-                                  onClick={() => {
-                                    setIsSpaceBookingSubmenuOpen(false);
-                                    setIsFindSpaceDropdownOpen(false);
-                                    handleLinkClick(subItem.path, null);
-                                  }}
-                                  className="dropdown-item block px-4 py-3 w-full text-left text-base text-gray-700 hover:bg-slate-100 hover:text-blue-600 transition-all duration-200"
-                                >
-                                  {subItem.label}
-                                </button>
-                              ))}
-                            </div>
-                          )}
-                        </div>
-                      ) : (
-                        <button
-                          key={index}
-                          onClick={() => handleLinkClick(item.path, setIsFindSpaceDropdownOpen)}
-                          className="dropdown-item w-full text-left px-6 py-4 text-base font-medium text-gray-700 hover:bg-slate-50 hover:text-blue-600 transition-all duration-200 flex items-center justify-between group"
-                        >
-                          <span>{item.label}</span>
-                          <span className="opacity-0 group-hover:opacity-100 transition-opacity text-blue-400">&rarr;</span>
-                        </button>
-                      )
-                    ))}
+                        )
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
@@ -298,28 +287,15 @@ const Navbar = ({ hideEnquireButton = false }) => {
               {/* About Us with dropdown */}
               <div 
                 className="relative px-2 py-2"
-                ref={aboutUsDropdownRef}
-                onMouseEnter={() => {
-                  setIsAboutUsDropdownOpen(true);
-                  setIsWhyTidelDropdownOpen(false);
-                  setIsFindSpaceDropdownOpen(false);
-                  setIsBlogsDropdownOpen(false);
-                  setIsSupportDropdownOpen(false);
-                }}
-                onMouseLeave={() => {
-                  setTimeout(() => setIsAboutUsDropdownOpen(false), 150);
-                }}
+                onMouseEnter={() => openDropdown(setIsAboutUsDropdownOpen)}
+                onMouseLeave={() => closeDropdown(setIsAboutUsDropdownOpen)}
               >
                 <button
-                  className="nav-button text-slate-800 text-sm font-semibold hover:text-blue-600 transition-all duration-300 px-2 py-2 rounded-lg hover:bg-slate-100 flex items-center whitespace-nowrap"
+                  className="nav-button text-slate-800 text-sm font-semibold hover:text-blue-600 px-2 py-2 rounded-lg hover:bg-slate-100 flex items-center whitespace-nowrap"
                   onClick={() => {
                     navigate('/about-us');
                     window.scrollTo(0, 0);
                     setIsAboutUsDropdownOpen(false);
-                    setIsWhyTidelDropdownOpen(false);
-                    setIsFindSpaceDropdownOpen(false);
-                    setIsBlogsDropdownOpen(false);
-                    setIsSupportDropdownOpen(false);
                   }}
                 >
                   About Us
@@ -327,19 +303,21 @@ const Navbar = ({ hideEnquireButton = false }) => {
                 
                 {isAboutUsDropdownOpen && (
                   <div 
-                    className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg py-2 z-100 border border-gray-100"
-                    onMouseEnter={() => setIsAboutUsDropdownOpen(true)}
-                    onMouseLeave={() => setIsAboutUsDropdownOpen(false)}
+                    className="absolute top-full left-0 pt-2 z-100"
+                    onMouseEnter={() => openDropdown(null)}
+                    onMouseLeave={() => closeDropdown(setIsAboutUsDropdownOpen)}
                   >
-                    {aboutUsDropdownItems.map((item, index) => (
-                      <button
-                        key={index}
-                        onClick={() => handleLinkClick(item.path, setIsAboutUsDropdownOpen)}
-                        className="dropdown-item block w-full text-left px-4 py-3 text-base text-gray-700 hover:bg-slate-100 hover:text-blue-600 transition-all duration-200"
-                      >
-                        {item.label}
-                      </button>
-                    ))}
+                    <div className="w-56 bg-white rounded-lg shadow-lg py-2 border border-gray-100">
+                      {aboutUsDropdownItems.map((item, index) => (
+                        <button
+                          key={index}
+                          onClick={() => handleLinkClick(item.path, setIsAboutUsDropdownOpen)}
+                          className="dropdown-item block w-full text-left px-4 py-3 text-base text-gray-700 hover:bg-slate-100 hover:text-blue-600 transition-all duration-200"
+                        >
+                          {item.label}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
@@ -347,28 +325,15 @@ const Navbar = ({ hideEnquireButton = false }) => {
               {/* Blogs with dropdown */}
               <div
                 className="relative px-2 py-2"
-                ref={blogsDropdownRef}
-                onMouseEnter={() => {
-                  setIsBlogsDropdownOpen(true);
-                  setIsWhyTidelDropdownOpen(false);
-                  setIsFindSpaceDropdownOpen(false);
-                  setIsAboutUsDropdownOpen(false);
-                  setIsSupportDropdownOpen(false);
-                }}
-                onMouseLeave={() => {
-                  setIsBlogsDropdownOpen(false);
-                }}
+                onMouseEnter={() => openDropdown(setIsBlogsDropdownOpen)}
+                onMouseLeave={() => closeDropdown(setIsBlogsDropdownOpen)}
               >
                 <button
-                  className="nav-button text-slate-800 text-sm font-semibold hover:text-blue-600 transition-all duration-300 px-2 py-2 rounded-lg hover:bg-slate-100 flex items-center whitespace-nowrap"
+                  className="nav-button text-slate-800 text-sm font-semibold hover:text-blue-600 px-2 py-2 rounded-lg hover:bg-slate-100 flex items-center whitespace-nowrap"
                   onClick={() => {
                     navigate('/blogs');
                     window.scrollTo(0, 0);
                     setIsBlogsDropdownOpen(false);
-                    setIsWhyTidelDropdownOpen(false);
-                    setIsFindSpaceDropdownOpen(false);
-                    setIsAboutUsDropdownOpen(false);
-                    setIsSupportDropdownOpen(false);
                   }}
                 >
                   Blogs
@@ -376,19 +341,21 @@ const Navbar = ({ hideEnquireButton = false }) => {
                 
                 {isBlogsDropdownOpen && (
                   <div 
-                    className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg py-2 z-100 border border-gray-100"
-                    onMouseEnter={() => setIsBlogsDropdownOpen(true)}
-                    onMouseLeave={() => setIsBlogsDropdownOpen(false)}
+                    className="absolute top-full left-0 pt-2 z-100"
+                    onMouseEnter={() => openDropdown(null)}
+                    onMouseLeave={() => closeDropdown(setIsBlogsDropdownOpen)}
                   >
-                    {blogsDropdownItems.map((item, index) => (
-                      <button
-                        key={index}
-                        onClick={() => handleLinkClick(item.path, setIsBlogsDropdownOpen)}
-                        className="dropdown-item block w-full text-left px-4 py-3 text-base text-gray-700 hover:bg-slate-100 hover:text-blue-600 transition-all duration-200"
-                      >
-                        {item.label}
-                      </button>
-                    ))}
+                    <div className="w-56 bg-white rounded-lg shadow-lg py-2 border border-gray-100">
+                      {blogsDropdownItems.map((item, index) => (
+                        <button
+                          key={index}
+                          onClick={() => handleLinkClick(item.path, setIsBlogsDropdownOpen)}
+                          className="dropdown-item block w-full text-left px-4 py-3 text-base text-gray-700 hover:bg-slate-100 hover:text-blue-600 transition-all duration-200"
+                        >
+                          {item.label}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
@@ -412,17 +379,8 @@ const Navbar = ({ hideEnquireButton = false }) => {
               {/* Support with dropdown */}
               <div 
                 className="relative px-2 py-2"
-                ref={supportDropdownRef}
-                onMouseEnter={() => {
-                  setIsSupportDropdownOpen(true);
-                  setIsWhyTidelDropdownOpen(false);
-                  setIsFindSpaceDropdownOpen(false);
-                  setIsAboutUsDropdownOpen(false);
-                  setIsBlogsDropdownOpen(false);
-                }}
-                onMouseLeave={() => {
-                  setTimeout(() => setIsSupportDropdownOpen(false), 150);
-                }}
+                onMouseEnter={() => openDropdown(setIsSupportDropdownOpen)}
+                onMouseLeave={() => closeDropdown(setIsSupportDropdownOpen)}
               >
                 <button
                   className="nav-button text-slate-800 text-sm font-semibold hover:text-blue-600 px-2 py-2 rounded-lg hover:bg-slate-100 flex items-center whitespace-nowrap"
@@ -435,19 +393,21 @@ const Navbar = ({ hideEnquireButton = false }) => {
                 
                 {isSupportDropdownOpen && (
                   <div 
-                    className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg py-2 z-100 border border-gray-100"
-                    onMouseEnter={() => setIsSupportDropdownOpen(true)}
-                    onMouseLeave={() => setIsSupportDropdownOpen(false)}
+                    className="absolute top-full left-0 pt-2 z-100"
+                    onMouseEnter={() => openDropdown(null)}
+                    onMouseLeave={() => closeDropdown(setIsSupportDropdownOpen)}
                   >
-                    {supportDropdownItems.map((item, index) => (
-                      <button
-                        key={index}
-                        onClick={() => handleLinkClick(item.path, setIsSupportDropdownOpen)}
-                        className="dropdown-item block w-full text-left px-4 py-3 text-base text-gray-700 hover:bg-slate-100 hover:text-blue-600 transition-all duration-200"
-                      >
-                        {item.label}
-                      </button>
-                    ))}
+                    <div className="w-56 bg-white rounded-lg shadow-lg py-2 border border-gray-100">
+                      {supportDropdownItems.map((item, index) => (
+                        <button
+                          key={index}
+                          onClick={() => handleLinkClick(item.path, setIsSupportDropdownOpen)}
+                          className="dropdown-item block w-full text-left px-4 py-3 text-base text-gray-700 hover:bg-slate-100 hover:text-blue-600 transition-all duration-200"
+                        >
+                          {item.label}
+                        </button>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
@@ -708,7 +668,7 @@ const Navbar = ({ hideEnquireButton = false }) => {
 
             <div className="space-y-3">
               <button
-                onClick={() => { navigate('/support'); setIsEnquirePopupOpen(false); window.scrollTo(0, 0); }}
+                onClick={() => { navigate('/support#book-facility'); setIsEnquirePopupOpen(false); window.scrollTo(0, 0); }}
                 className="w-full py-3 px-4 border border-white/60 text-white text-sm font-medium hover:bg-white hover:text-[#19438e] transition-all duration-300 text-left rounded"
               >
                 Book Facility
@@ -720,7 +680,7 @@ const Navbar = ({ hideEnquireButton = false }) => {
                 Find Space
               </button>
               <button
-                onClick={() => { navigate('/support'); setIsEnquirePopupOpen(false); window.scrollTo(0, 0); }}
+                onClick={() => { navigate('/support#visitor-pass'); setIsEnquirePopupOpen(false); window.scrollTo(0, 0); }}
                 className="w-full py-3 px-4 border border-white/60 text-white text-sm font-medium hover:bg-white hover:text-[#19438e] transition-all duration-300 text-left rounded"
               >
                 Visitor Pass
