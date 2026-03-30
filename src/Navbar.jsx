@@ -158,7 +158,7 @@ const Navbar = ({ hideEnquireButton = false }) => {
           <div className="flex items-center justify-between">
             {/* Logo on the left */}
             <div className="flex items-center space-x-2 cursor-pointer shrink-0" onClick={() => navigate('/')}>
-              <img src={logo} alt="TIDEL Logo" className="h-10 w-auto md:h-12" />
+              <img src={logo} alt="TIDEL Logo" className="h-10 w-auto" onError={(e) => { e.target.style.display = 'none'; }} />
             </div>
 
             {/* Desktop Navigation Links - hidden on mobile/tablet */}

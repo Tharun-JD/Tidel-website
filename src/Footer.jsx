@@ -40,7 +40,7 @@ const Footer = () => {
           {/* Branding Column */}
           <div className="lg:col-span-2">
             <div className="mb-6">
-              <img src={logoImage} alt="TIDEL Park Logo" className="h-16" />
+              <img src={logoImage} alt="TIDEL Park Logo" className="h-10" />
             </div>
             <p className="text-gray-600 mb-6 leading-relaxed">Tamil Nadu's premier IT infrastructure hub, fostering innovation and technological excellence since inception.</p>
             <div className="flex space-x-4">
