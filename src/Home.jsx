@@ -449,29 +449,6 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Enquiry Section */}
-      <section id="body-enquiry" className="py-20 bg-slate-900 relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full -mr-48 -mt-48 blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-red-600/10 rounded-full -ml-48 -mb-48 blur-3xl"></div>
-        <div className="container mx-auto px-4 relative z-10 text-center">
-          <h2 className="text-4xl font-black text-white mb-4 uppercase italic tracking-tight">Enquiry</h2>
-          <p className="text-blue-100 text-lg mb-12">Click here to enquire. Our team is ready to assist you.</p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <button onClick={() => navigate('/support#book-facility')} className="flex flex-col items-center justify-center p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all group">
-              <span className="text-3xl mb-4 group-hover:scale-110">🏢</span>
-              <span className="text-white font-bold uppercase text-sm">Book Facility</span>
-            </button>
-            <button onClick={() => navigate('/find-space')} className="flex flex-col items-center justify-center p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all group">
-              <span className="text-3xl mb-4 group-hover:scale-110">📍</span>
-              <span className="text-white font-bold uppercase text-sm">Find Space</span>
-            </button>
-            <button onClick={() => navigate('/support#visitor-pass')} className="flex flex-col items-center justify-center p-8 bg-white/5 border border-white/10 rounded-2xl hover:bg-white/10 transition-all group">
-              <span className="text-3xl mb-4 group-hover:scale-110">🎫</span>
-              <span className="text-white font-bold uppercase text-sm">Visitor Pass</span>
-            </button>
-          </div>
-        </div>
-      </section>
 
       {/* Find Your Space Section */}
       <section id="find-space" className="py-20 bg-blue-600 relative overflow-visible">
@@ -533,24 +510,51 @@ const Home = () => {
       </section>
 
       {/* Testimonials */}
-      <section id="testimonials" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-12">What Our Clients Say</h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
-            {[
-              { name: 'Rajesh Kumar', role: 'CEO, Tech Solutions', text: 'Tidel Park has been instrumental in our growth.' },
-              { name: 'Priya Sharma', role: 'Founder, Digital Innovations', text: 'Strategic location and world-class facilities.' },
-              { name: 'Arun Prabhu', role: 'CTO, Cloud Solutions', text: 'Commitment to technology and security is exceptional.' },
-            ].map((test, idx) => (
-              <div key={idx} className="bg-white rounded-xl shadow-sm border border-gray-200 p-8 group hover:shadow-md transition-all">
-                <p className="text-gray-600 italic mb-6">"{test.text}"</p>
-                <div className="flex items-center">
-                  <div className="w-10 h-10 rounded-full bg-blue-100 mr-3"></div>
-                  <div><h4 className="font-bold text-gray-900">{test.name}</h4><p className="text-xs text-gray-500">{test.role}</p></div>
-                </div>
-              </div>
+      <section id="testimonials" className="pt-20 pb-12 bg-gray-50 overflow-hidden">
+        <div className="container mx-auto px-4 text-center mb-4">
+          <h2 className="text-3xl font-bold text-gray-900">What Our Clients Say</h2>
+          <div className="w-20 h-1 bg-red-600 mx-auto mt-4 mb-6"></div>
+          <p className="text-gray-600 max-w-2xl mx-auto">Hear from the global organizations and leaders who thrive within the TIDEL ecosystem.</p>
+        </div>
+
+        <div className="relative flex w-full overflow-hidden py-12">
+          <motion.div 
+            className="flex gap-8 whitespace-nowrap px-4"
+            animate={{ x: [0, -2800] }} 
+            transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+            whileHover={{ transition: { duration: 0 } }} // Attempt to pause
+          >
+            {[...Array(2)].map((_, i) => (
+              <React.Fragment key={i}>
+                {[
+                  { name: 'Rajesh Kumar', role: 'CEO, Tech Solutions', text: 'Tidel Park has been instrumental in our growth.' },
+                  { name: 'Priya Sharma', role: 'Founder, Digital Innovations', text: 'Strategic location and world-class facilities.' },
+                  { name: 'Arun Prabhu', role: 'CTO, Cloud Solutions', text: 'Commitment to technology and security is exceptional.' },
+                  { name: 'Suresh Raina', role: 'Product Manager, Animaker', text: 'Transformative experience for our team. The infra is unmatched.' },
+                  { name: 'Anjali Devi', role: 'Operations Lead, BNY Mellon', text: 'Security and global standards at its best. A heritage of tech excellence.' },
+                  { name: 'Karthik Raja', role: 'Founder, Codoid', text: 'Scalable workspace that grows with your vision at TIDEL.' },
+                  { name: 'Deepika Iyer', role: 'HR Manager, Sify', text: 'World-class amenities that keep our employees energized and productive.' },
+                  { name: 'Vikram Singh', role: 'Director, Verizon', text: 'An ecosystem where innovation truly thrives and scales globally.' }
+                ].map((test, idx) => (
+                  <div key={`${i}-${idx}`} className="w-[450px] inline-block bg-white rounded-2xl shadow-sm border border-gray-100 p-10 group hover:shadow-xl transition-all duration-500 whitespace-normal">
+                    <div className="text-red-500 text-4xl mb-6 opacity-40 group-hover:opacity-100 transition-opacity font-serif">"</div>
+                    <p className="text-gray-600 italic mb-8 leading-relaxed text-lg italic">
+                      {test.text}
+                    </p>
+                    <div className="flex items-center mt-auto border-t border-gray-100 pt-6">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 mr-4 flex items-center justify-center font-bold text-blue-600">
+                        {test.name.split(' ').map(n => n[0]).join('')}
+                      </div>
+                      <div className="text-left">
+                        <h4 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors uppercase tracking-tight">{test.name}</h4>
+                        <p className="text-xs text-gray-500 font-medium uppercase tracking-widest">{test.role}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </React.Fragment>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 

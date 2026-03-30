@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import neoImage from './assets/neo.png';
@@ -84,19 +85,15 @@ const WhyTidel = () => {
     "24/7 Support & Security"
   ];
 
-  const testimonials = [
-    {
-      author: "Shanker",
-      text: "TIDEL is a place where we feel secure. Besides this, we have a very friendly environment and the facility support we receive is extremely good."
-    },
-    {
-      author: "Ajay Jain",
-      text: "Tidel Park's strategic location and seamless business continuity infrastructure has been the backbone for Guardian India's presence here since our inception."
-    },
-    {
-      author: "Saraswathy K.",
-      text: "The brand identity of Tidel Park enriched Pointel Solutions' presence in business. Our sincere appreciation to the entire Tidel Park team."
-    }
+  const testimonialsData = [
+    { name: 'Rajesh Kumar', role: 'CEO, Tech Solutions', text: 'Tidel Park has been instrumental in our growth.' },
+    { name: 'Priya Sharma', role: 'Founder, Digital Innovations', text: 'Strategic location and world-class facilities.' },
+    { name: 'Arun Prabhu', role: 'CTO, Cloud Solutions', text: 'Commitment to technology and security is exceptional.' },
+    { name: 'Suresh Raina', role: 'Product Manager, Animaker', text: 'Transformative experience for our team. The infra is unmatched.' },
+    { name: 'Anjali Devi', role: 'Operations Lead, BNY Mellon', text: 'Security and global standards at its best. A heritage of tech excellence.' },
+    { name: 'Karthik Raja', role: 'Founder, Codoid', text: 'Scalable workspace that grows with your vision at TIDEL.' },
+    { name: 'Deepika Iyer', role: 'HR Manager, Sify', text: 'World-class amenities that keep our employees energized and productive.' },
+    { name: 'Vikram Singh', role: 'Director, Verizon', text: 'An ecosystem where innovation truly thrives and scales globally.' }
   ];
 
   return (
@@ -171,22 +168,44 @@ const WhyTidel = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section id="testimonial" className="py-12 md:py-20 px-4 md:px-16 lg:px-24 bg-white overflow-hidden">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center text-[#19438e] mb-16">Testimonials</h2>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {testimonials.map((test, index) => (
-              <div key={index} className="bg-[#f8fafc] p-10 rounded-2xl relative border border-gray-100">
-                <div className="text-6xl text-[#19438e]/10 absolute top-4 left-4 font-serif">"</div>
-                <p className="text-gray-600 italic mb-8 relative z-10 leading-relaxed">
-                  {test.text}
-                </p>
-                <div className="border-t border-gray-200 pt-6">
-                  <h4 className="font-bold text-gray-800 text-lg">— {test.author}</h4>
-                </div>
-              </div>
+      <section id="testimonial" className="py-24 bg-white overflow-hidden border-y border-gray-100">
+        <div className="container mx-auto px-4 text-center mb-16">
+          <h2 className="text-4xl font-bold text-[#19438e] mb-6">Testimonials</h2>
+          <div className="w-24 h-1.5 bg-red-600 mx-auto mb-8"></div>
+          <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
+            Success stories from the global organizations and visionaries who paved their way to greatness within the TIDEL ecosystem.
+          </p>
+        </div>
+
+        <div className="relative flex w-full overflow-hidden py-12">
+          <motion.div 
+            className="flex gap-8 whitespace-nowrap px-4"
+            animate={{ x: [0, -2800] }} 
+            transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
+            whileHover={{ transition: { duration: 0 } }}
+          >
+            {[...Array(2)].map((_, i) => (
+              <React.Fragment key={i}>
+                {testimonialsData.map((test, idx) => (
+                  <div key={`${i}-${idx}`} className="w-[450px] inline-block bg-[#f8fafc] rounded-2xl shadow-sm border border-gray-100 p-10 group hover:shadow-xl transition-all duration-500 whitespace-normal">
+                    <div className="text-red-500 text-4xl mb-6 opacity-40 group-hover:opacity-100 transition-opacity font-serif">"</div>
+                    <p className="text-gray-600 italic mb-8 leading-relaxed text-lg underline-offset-4 decoration-blue-200/50">
+                      {test.text}
+                    </p>
+                    <div className="flex items-center mt-auto border-t border-gray-200 pt-6">
+                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-blue-100 to-blue-200 mr-4 flex items-center justify-center font-bold text-blue-600">
+                        {test.name.split(' ').map(n => n[0]).join('')}
+                      </div>
+                      <div className="text-left">
+                        <h4 className="font-bold text-gray-900 group-hover:text-blue-600 transition-colors uppercase tracking-tight">{test.name}</h4>
+                        <p className="text-xs text-gray-500 font-medium uppercase tracking-widest">{test.role}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </React.Fragment>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
 
